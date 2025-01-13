@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: tic-tac-toe
-        image: okeymcokoli/tic-tac-toe:24
+        image: okeymcokoli/tic-tac-toe:26
         ports:
         - containerPort: 8000
         env:
