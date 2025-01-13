@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tic-tac-toe-deployment
+  labels:
+    app: tic-tac-toe
+spec:
+  replicas: 2  # Number of pods you want to run
+  selector:
+    matchLabels:
+      app: tic-tac-toe
+  template:
+    metadata:
+      labels:
+        app: tic-tac-toe
+    spec:
+      containers:
+      - name: tic-tac-toe
+        image: okeymcokoli/tic-tac-toe:v2  # Replace with your image name and tag
+        ports:
+        - containerPort: 8000
+        env:
+        - name: FLASK_ENV
+          value: "production"  # Can also be "development" if you want to enable debugging
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
+          limits:
+            memory: "256Mi"
+            cpu: "500m"
